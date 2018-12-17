@@ -1,4 +1,4 @@
-package com.example.schedulerdemo;
+package org.srs.thingsboard.providers.batches.scheduling;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

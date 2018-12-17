@@ -1,4 +1,4 @@
-package com.example.schedulerdemo.config;
+package org.srs.thingsboard.providers.batches.scheduling.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.SchedulingConfigurer;
