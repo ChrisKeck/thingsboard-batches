@@ -1,8 +1,6 @@
 package org.srs.thingsboard.providers.batches.scheduling;
 
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -18,20 +16,16 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by rajeevkumarsingh on 02/08/17.
  */
-@Component
-@Slf4j
-public class ScheduledTasks {
+@Component @Slf4j public class ScheduledTasks {
 
     private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
-    @Autowired
-    private Environment environment;
-    @Autowired
-    private RestTemplate restTemplate;
+    @Autowired private Environment environment;
+    @Autowired private RestTemplate restTemplate;
 
     //@Scheduled(fixedRate = 2000)
     public void scheduleTaskWithFixedRate() {
-        log.info("Fixed Rate Task :: Execution Time - {}", dateTimeFormatter.format(LocalDateTime.now()) );
+        log.info("Fixed Rate Task :: Execution Time - {}", dateTimeFormatter.format(LocalDateTime.now()));
     }
 
     //@Scheduled(fixedDelay = 2000)
@@ -47,8 +41,8 @@ public class ScheduledTasks {
 
     @Scheduled(fixedRate = 2000, initialDelay = 5000)
     public void scheduleTaskWithInitialDelay() {
-     ScheduledTask task = createWeatherTask();
-     task.execute();
+        var task = createWeatherTask();
+        task.execute();
     }
 
     private ScheduledTask createWeatherTask() {
